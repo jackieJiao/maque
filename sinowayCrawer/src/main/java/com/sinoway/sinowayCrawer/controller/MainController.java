@@ -13,7 +13,7 @@ public class MainController {
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String getCommonPage(){
 		logger.debug("Received request to show common page");
-		return "index";  
+		return "indexPage";  
 	}
 	
 	@RequestMapping(value = "/searchList", method = RequestMethod.GET)

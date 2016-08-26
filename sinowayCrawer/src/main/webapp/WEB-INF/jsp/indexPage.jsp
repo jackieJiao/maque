@@ -197,30 +197,36 @@
 	         ["电放费"]
 	     ];
 	    var infoWindow = new AMap.InfoWindow({offset:new AMap.Pixel(0,-30)});
-	    for(var i= 0,marker;i<lnglats.length;i++){
-	          var marker=new AMap.Marker({
-	              position:lnglats[i],
-	             
-	          });
-	      marker.setMap(map);
-	    marker.on('click',function(e){
-	      infowindow.open(map,e.target.getPosition());
-	    })
-	    AMap.plugin('AMap.AdvancedInfoWindow',function(){
-	       infowindow = new AMap.AdvancedInfoWindow({
-	        content: '<div class="info-title">详细信息</div><div class="info-content">'+
-	                '<img src="http://webapi.amap.com/images/amap.jpg">'+
-	                w[i]+
-	                '<a target="_blank" href = "http://mobile.amap.com/">点击下载高德地图</a></div>',
-	        offset: new AMap.Pixel(0, -30)
-	      });
-	      
-	    })
-	       
-	    }
-	  
-	    map.setFitView();}
-   </script>
+	    
+				for (var i = 0, marker; i < lnglats.length; i++) {
+						var marker = new AMap.Marker({
+							position : lnglats[i],
+
+						});
+						marker.setMap(map);
+						marker.on('click', function(e) {
+							infowindow.open(map, e.target.getPosition());
+						})
+						AMap.plugin(
+										'AMap.AdvancedInfoWindow',
+										function() {
+											infowindow = new AMap.AdvancedInfoWindow(
+													{
+														content : '<div class="info-title">详细信息包括图片和文字说明</div><div class="info-content">'
+																+ '<img src="http://webapi.amap.com/images/amap.jpg">'
+																+ w[i]
+																+ '<a target="_blank" href = "http://mobile.amap.com/">点击下载高德地图</a></div>',
+														offset : new AMap.Pixel(
+																0, -30)
+													});
+
+										})
+
+					}
+
+					map.setFitView();
+				}
+			</script>
 
 	<!-- Placed js at the end of the document so the pages load faster -->
 	<script src="js/jquery-1.10.2.min.js"></script>
